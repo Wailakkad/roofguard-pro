@@ -317,7 +317,7 @@ export default function App() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="sticky top-0 z-50 w-full bg-white px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between border-b border-gray-100"
+        className="sticky top-0 z-50 w-full bg-white px-4 md:px-6 lg:px-8 py-2.5 md:py-4 flex items-center justify-between border-b border-gray-100"
       >
         
         {/* LOGO (LEFT) */}
@@ -461,64 +461,48 @@ export default function App() {
       </AnimatePresence>
 
       {/* -------------------- SECTION 1: HERO SECTION -------------------- */}
-      <header id="hero-section" style={{
-        margin: '24px 28px 28px 28px',
-        borderRadius: '22px',
-        overflow: 'hidden',
-        minHeight: '78vh',
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'flex-end',
-        backgroundImage: 'url(\'/background-image.jpg\')',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-      }}>
+      <header id="hero-section"
+        className="relative flex items-end overflow-hidden bg-cover bg-center bg-no-repeat m-4 md:mx-[28px] md:mb-[28px] md:mt-[24px] rounded-[18px] md:rounded-[22px] min-h-[82vh] md:min-h-[78vh]"
+        style={{
+          backgroundImage: 'url(\'/background-image.jpg\')',
+        }}>
         
         {/* ROOFING WATERMARK TEXT */}
         <div 
           style={{
             position: 'absolute',
-            top: '15%',
-            left: 0,
-            right: 0,
-            fontSize: 'clamp(120px, 18vw, 220px)',
             fontWeight: 900,
             color: '#ffffff',
             opacity: 1,
             letterSpacing: '-2px',
             lineHeight: 1,
-            paddingLeft: '24px',
             zIndex: 1,
             pointerEvents: 'none',
             whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            fontSize: 'clamp(48px, 18vw, 90px)',
+            top: '10%',
+            paddingLeft: '16px',
+            left: 0,
+            right: 0,
           }}
-          className="font-display uppercase select-none"
+          className="font-display uppercase select-none md:text-[clamp(120px,18vw,220px)] md:top-[15%] md:pl-6"
         >
           ROOFING
         </div>
 
         {/* HERO CONTENT */}
-        <div style={{
-          position: 'relative',
-          zIndex: 2,
-          padding: '0 0 52px 44px',
-          maxWidth: '55%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          gap: 0,
-        }}>
+        <div className="relative z-10 w-full max-w-full md:max-w-[55%] px-5 md:pl-11 pb-10 md:pb-[52px] flex flex-col items-start gap-0">
           
           {/* HEADLINE */}
           <h2 style={{
-            fontSize: 'clamp(28px, 3.5vw, 42px)',
             fontWeight: 800,
             color: '#ffffff',
-            lineHeight: 1.2,
-            margin: '0 0 14px 0',
             textAlign: 'left',
-          }} className="font-display">
+            fontSize: '24px',
+            lineHeight: 1.3,
+            margin: '0 0 12px 0',
+          }} className="font-display md:text-[clamp(28px,3.5vw,42px)] md:leading-[1.2] md:mb-[14px]">
             Shield Your Home with Sleek, Modern Roofing Solutions
           </h2>
 
@@ -528,20 +512,15 @@ export default function App() {
             fontWeight: 400,
             color: 'rgba(255, 255, 255, 0.88)',
             lineHeight: 1.6,
-            margin: '0 0 26px 0',
-            maxWidth: '440px',
+            margin: '0 0 20px 0',
+            width: '100%',
             textAlign: 'left',
-          }}>
+          }} className="md:max-w-[440px] md:mb-[26px]">
             From innovative installations to swift repairs, our expert team delivers durability, style, and peace of mind. Get your free estimate today!
           </p>
 
           {/* BUTTONS ROW */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '14px',
-          }}>
+          <div className="flex flex-col md:flex-row gap-3 md:gap-4 w-full md:w-auto">
             <button
               onClick={() => {
                 resetEstimateForm();
@@ -552,12 +531,13 @@ export default function App() {
                 color: '#ffffff',
                 fontSize: '14px',
                 fontWeight: 700,
-                padding: '14px 28px',
+                padding: '14px 20px',
                 borderRadius: '50px',
                 border: 'none',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
               }}
+              className="w-full md:w-auto"
             >
               Get Your Free Estimate
             </button>
@@ -569,7 +549,7 @@ export default function App() {
                 color: '#1a1a1a',
                 fontSize: '14px',
                 fontWeight: 600,
-                padding: '14px 24px',
+                padding: '14px 20px',
                 borderRadius: '50px',
                 border: '2px solid #ffffff',
                 cursor: 'pointer',
@@ -578,6 +558,7 @@ export default function App() {
                 gap: '8px',
                 whiteSpace: 'nowrap',
               }}
+              className="w-full md:w-auto"
             >
               <Phone className="w-4 h-4" style={{ color: '#1a1a1a' }} />
               <span>Call Now</span>
@@ -883,30 +864,32 @@ export default function App() {
             {/* CARD 1 - Special "Call Now" Card */}
             <motion.div 
               variants={staggerItem}
-              className="w-56 flex-shrink-0 bg-white border border-gray-100 rounded-3xl p-6 flex flex-col h-[390px] shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-2"
+              className="w-56 flex-shrink-0 bg-[#d9c7b8] rounded-[22px] flex flex-col justify-between relative overflow-hidden"
+              style={{ padding: '18px', boxShadow: '0 10px 25px rgba(0,0,0,0.04)' }}
             >
-              <div className="flex flex-col items-start">
-                <span className="bg-orange-100 text-orange-500 text-[11px] font-bold rounded-full px-3 py-1 uppercase tracking-wider">
-                  Call Now
+              <div className="relative z-10 flex flex-col h-full">
+                <span className="inline-block bg-[#f97316]/20 text-[#f97316] text-xs font-semibold px-4 py-1.5 rounded-full">
+                  CALL NOW
                 </span>
-              </div>
-              
-              <div className="flex-grow flex items-end justify-center mt-4 mb-4 overflow-hidden relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" 
-                  alt="A smiling professional roofing project advisor" 
-                  className="object-contain h-40 w-full transform hover:scale-105 transition-transform duration-300"
-                  referrerPolicy="no-referrer"
-                />
+
+                <div className="flex-grow"></div>
+
+                <a 
+                  href="tel:+97132435757"
+                  className="bg-[#f97316] text-white font-bold text-[14px] rounded-full shadow-lg flex items-center gap-2 w-auto transition-all duration-200 cursor-pointer hover:bg-orange-600 active:bg-orange-700"
+                  style={{ padding: '12px 22px', boxShadow: '0 8px 20px rgba(249,115,22,0.35)' }}
+                >
+                  <Phone className="w-4 h-4 text-white" />
+                  <span>+971 32435 757</span>
+                </a>
               </div>
 
-              <a 
-                href="tel:+97132435757"
-                className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white text-sm px-4 py-2.5 rounded-full flex items-center gap-2 w-full justify-center mt-auto font-bold transition-all duration-200 shadow-md shadow-orange-500/10 cursor-pointer"
-              >
-                <Phone className="w-4 h-4 text-white" />
-                <span>+971 32435 757</span>
-              </a>
+              <img
+                src="/png-men-image.png"
+                alt="Call support"
+                className="absolute object-contain pointer-events-none max-h-[260px] md:max-h-[340px]"
+                style={{ right: '-25px', bottom: '-10px' }}
+              />
             </motion.div>
 
             {/* CARDS 2 to 5 */}
