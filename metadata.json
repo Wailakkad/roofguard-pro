@@ -1,0 +1,6 @@
+{
+  "name": "RoofGuard Solution",
+  "description": "Premium modern roofing solutions for high-durability, style, and complete peace of mind.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
