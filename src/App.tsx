@@ -17,6 +17,7 @@ import {
   AlertTriangle,
   FileText
 } from 'lucide-react';
+import ChatBot from './components/ChatBot';
 
 // Reusable Framer Motion Variants
 const fadeUp = {
@@ -2245,6 +2246,8 @@ export default function App() {
           </div>
         )}
       </AnimatePresence>
+
+      <ChatBot />
 
     </div>
   );
